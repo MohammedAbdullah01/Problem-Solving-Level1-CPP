@@ -5,13 +5,183 @@
 
 using namespace std;
 
+double getPI()
+{
+	return 3.14;
+}
+
+#pragma region Procedure => Problem 1 
+void PrintYourName()
+{
+	cout << "Mohammedd" << endl;
+}
+#pragma endregion
+
+
+#pragma region Procedure => Problem 2
+void PrintYourName(string name)
+{
+	cout << name << endl;
+}
+#pragma endregion
+
+
+#pragma region Procedure => Problem 14
+void SwapTwoNumber(int &inputNum1,int &inputNum2)
+{
+	int temp = inputNum1;
+	inputNum1 = inputNum2;
+	inputNum2 = temp;
+
+}
+#pragma endregion
+
+
+#pragma region Funcation => Problem 15
+double calculateRectangleArea(double width, double height)
+{
+	return height * width;
+}
+#pragma endregion
+
+
+#pragma region Funcation => Problem 16 
+double calculateRectangleAreaThroughDiagonal(double height, double diagonal)
+{
+	return height * sqrt(pow(diagonal, 2) - pow(height, 2));
+}
+#pragma endregion 
+
+
+#pragma region Funcation => Problem 18
+double calculateCircleAreaByRadius(double distance)
+{
+	return getPI() * pow(distance , 2);
+}
+#pragma endregion 
+
+
+#pragma region Funcation => Problem 19
+double CalculateAreaCircleFullDiameter(double diameter)
+{
+	return getPI() * pow(diameter , 2) / 4;
+}
+#pragma endregion 
+
+
+#pragma region Funcation => Problem 20
+double CalculateCircleAreaInscribedInSquare(double squareSide)
+{
+	return getPI() * pow(squareSide, 2) / pow(2 , 2);
+}
+#pragma endregion 
+
+
+#pragma region Funcation => Problem 21
+double CalculateCircleAreaAlongCircumference(double lengthPerimeter)
+{
+	return pow(lengthPerimeter , 2) / (getPI() * 4);
+}
+#pragma endregion 
+
+
+#pragma region Funcation => Problem 22 
+double CalculateCircleAreaInscribedInIsoscelesTriangle(double SideHeightTriangle, double TriangleRule)
+{
+	return getPI() * (pow(TriangleRule , 2) / 4) *
+		(((2 * SideHeightTriangle) - TriangleRule) / ((2 * SideHeightTriangle) + TriangleRule));
+}
+#pragma endregion 
+
+
+#pragma region Funcation => Problem 23
+double CalculateCircleAreaCircleDescribedAroundArbitraryTriangle(double rib1, double rib2, double rib3)
+{
+	double P = (rib1 + rib2 + rib3) / 2;
+
+	double result =  (rib1 * rib2 * rib3) / (4 * sqrt(P * (P - rib1) * (P - rib2) * (P - rib3)));
+
+	result *= result * getPI();
+
+	return result;
+}
+
+
+#pragma region Procedure => Problem 31
+void PrintPowerNumberFrom2To4(int num)
+{
+	cout
+		<< "Calculate Power ^2 =  " << round(pow(num, 2)) << endl
+		<< "Calculate Power ^3 =  " << round(pow(num, 3)) << endl
+		<< "Calculate Power ^4 =  " << round(pow(num, 4)) << endl;
+
+}
+#pragma endregion 
+
+
+#pragma region Funcation => Problem 31
+double CalculatePowerNumber(int num , int powerNumber)
+{
+	double result = num;
+	for (int i = 1; i < powerNumber; i++)
+	{
+		result *= num;
+	}
+	return result;
+}
+#pragma endregion
+
+#pragma region Funcation => Problem 42
+double CalculateDurationInSeconds(int NumberDays, int NumberHours, int NumberMinutes, int NumberSeconds)
+{
+	return (NumberDays * 24 * 60 * 60) + (NumberHours * 60 * 60) + (NumberMinutes * 60) + NumberSeconds;
+}
+#pragma endregion
+
+
+#pragma region Procedure => Problem 43
+void CalculateSecondsTo_Days_Hours_Minutes_Seconds(int totalSeconds)
+{
+	int secondsOfDays = 24 * 60 * 60,
+		secondsOfHours = 60 * 60,
+		secondsOfMinutes = 60,
+		numberOfDays,
+		numberOfHours,
+		numberOfMinutes,
+		Remainder,
+		numberOfSeconds;
+
+
+	numberOfDays = totalSeconds / secondsOfDays;
+	Remainder = totalSeconds % secondsOfDays;
+
+	numberOfHours = Remainder / secondsOfHours;
+	Remainder = Remainder % secondsOfHours;
+
+	numberOfMinutes = Remainder / secondsOfMinutes;
+	Remainder = Remainder % secondsOfMinutes;
+
+	numberOfSeconds = Remainder;
+
+	cout
+		<< "Number Of Days	  : " << round(numberOfDays) << endl
+		<< "Number Of Hours	  : " << round(numberOfHours) << endl
+		<< "Number Of Minutes : " << round(numberOfMinutes) << endl
+		<< "Number Of Seconds : " << round(numberOfSeconds) << endl;
+}
+#pragma endregion
+
+
+#pragma endregion
+
+
 int main()
 {
 #pragma region Problem 1 
 	/* Write a Program To Print Your Name On Screen */
 
 	/*cout << "The Problem 1 : Print Your Name" << endl;
-	cout << "Mohammed" << endl;*/
+	PrintYourName();*/
 #pragma endregion
 
 	cout << endl;
@@ -22,7 +192,7 @@ int main()
 	/*cout << "The Problem 2 : Enter Name ?" << endl;
 	string inputName;
 	cin >> inputName;
-	cout << inputName << endl;*/
+	PrintYourName(inputName);*/
 #pragma endregion
 
 	cout << endl;
@@ -241,19 +411,15 @@ int main()
 	Then Print The Two Number , Then Swap The Two Number And Print Them */
 
 	/*cout << "The Problem 14 : Enter (Num1 , Num2) ?" << endl;
-	int inputNum1,
-		inputNum2,
-		temp;
+	int inputNum1,inputNum2;
 
 	cin >> inputNum1;
 	cin >> inputNum2;
 
 	cout << "Before Swap" << endl << inputNum1 << " , " << inputNum2 << endl;
 
-	temp = inputNum1;
-	inputNum1 = inputNum2;
-	inputNum2 = temp;
-
+	SwapTwoNumber(inputNum1 , inputNum2);
+	
 	cout << "After Swap" << endl << inputNum1 << " , " << inputNum2; */
 #pragma endregion
 
@@ -264,17 +430,13 @@ int main()
 	/* Write a program To Ask The User To Enter a (height  , width)
 	Calculate Rectangle Area And Print It On The Screen */
 
-	/*cout << "The Problem 15 : Enter (height , width) ?" << endl;
-	float inputHeight,
-		inputWidth,
-		calculateRectangleArea;
+	/*cout << "the problem 15 : enter (height , width) ?" << endl;
+	float inputheight, inputwidth;
 
-	cin >> inputHeight;
-	cin >> inputWidth;
+	cin >> inputheight;
+	cin >> inputwidth;
 
-	calculateRectangleArea = inputHeight * inputWidth;
-
-	cout << "Rectangle Area = (height X width) = " << calculateRectangleArea;*/
+	cout << "rectangle area = (height x width) = " << calculateRectangleArea(inputwidth , inputheight);*/
 #pragma endregion
 
 	cout << endl;
@@ -287,19 +449,14 @@ int main()
 	Law => (height x sqrt( (diagonal x diagonal) - (height x height) ) ) */
 
 	/*cout << "The Problem 16 : Enter (height  , diagonal) ?" << endl;
-	float inputHeight,
-		inputDiagonal,
-		calculateRectangleAreaThroughDiagonal;
+	float inputHeight, inputDiagonal;
 
 	cin >> inputHeight;
 	cin >> inputDiagonal;
 
-	calculateRectangleAreaThroughDiagonal = 
-		inputHeight * sqrt( pow(inputDiagonal , 2)  - pow(inputHeight, 2) );
-
 	cout << "calculate Rectangle Area Through Diagonal = " 
 	<< " (height x sqrt((diagonal x diagonal) - (height x height))) = " 
-	<< calculateRectangleAreaThroughDiagonal;*/
+	<< calculateRectangleAreaThroughDiagonal(inputHeight , inputDiagonal);*/
 #pragma endregion
 
 	cout << endl;
@@ -332,15 +489,11 @@ int main()
 	Law => (π * (Distance * Distance) ) */
 
 	/*cout << "The Problem 18 : Enter ( Distance ) ?" << endl;
-	float inputDistance,
-		Pi = 3.14F,
-		calculateCircleAreaByRadius;
+	float inputDistance;
 
 	cin >> inputDistance;
 
-	calculateCircleAreaByRadius = Pi * (inputDistance * inputDistance);
-
-	cout << "calculate Circle Area By Radius = (π * (Distance * Distance) ) = " << ceil(calculateCircleAreaByRadius) ;*/
+	cout << "calculate Circle Area By Radius = (π * (Distance * Distance) ) = " << ceil(calculateCircleAreaByRadius(inputDistance)) ;*/
 #pragma endregion
 
 	cout << endl;
@@ -352,16 +505,12 @@ int main()
 	Law => (π * (Diameter * Diameter) / 4 ) */
 
 	/*cout << "The Problem 19 : Enter ( Diameter ) ?" << endl;
-	float inputDiameter,
-		Pi = 3.14F,
-		CalculateAreaCircleFullDiameter;
+	float inputDiameter;
 
 	cin >> inputDiameter;
 
-	CalculateAreaCircleFullDiameter = Pi * (inputDiameter * inputDiameter) / 4;
-
 	cout << "Calculate Area Circle FullDiameter = (π * (Diameter * Diameter) / 4 ) = " 
-	<< ceil(CalculateAreaCircleFullDiameter) ; */
+	<< ceil(CalculateAreaCircleFullDiameter(inputDiameter)) ; */
 #pragma endregion
 
 	cout << endl;
@@ -373,16 +522,12 @@ int main()
 	Law => (π * ( (Square Side * Square Side) /  (2 * 2) ) ) */
 
 	/*cout << "The Problem 20 : Enter ( Square Side ) ?" << endl;
-	float inputSquareSide,
-		Pi = 3.14F,
-		CalculateCircleAreaInscribedInSquare;
+	float inputSquareSide;
 
 	cin >> inputSquareSide;
 
-	CalculateCircleAreaInscribedInSquare = Pi * ( (inputSquareSide * inputSquareSide) / (2 * 2) );
-
 	cout << "Calculate Circle Area Inscribed In Square = (π * ( (Square Side * Square Side) /  (2 * 2) ) ) = "
-	<< ceil(CalculateCircleAreaInscribedInSquare); */
+	<< ceil(CalculateCircleAreaInscribedInSquare(inputSquareSide)); */
 #pragma endregion
 
 	cout << endl;
@@ -394,16 +539,12 @@ int main()
 	Law =>  (Length Perimeter * Length Perimeter) /  (π * 4)  */
 
 	/*cout << "The Problem 21 : Enter ( Length Perimeter ) ?" << endl;
-	float inputLengthPerimeter,
-		Pi = 3.14F,
-		CalculateCircleAreaAlongCircumference;
+	float inputLengthPerimeter;
 
 	cin >> inputLengthPerimeter;
 
-	CalculateCircleAreaAlongCircumference = (inputLengthPerimeter * inputLengthPerimeter) /  (Pi * 4);
-
 	cout << "Calculate Circle Area Inscribed In Square = (Length Perimeter * Length Perimeter) /  (π * 4) = "
-	<< floor(CalculateCircleAreaAlongCircumference); */
+	<< floor(CalculateCircleAreaAlongCircumference(inputLengthPerimeter)); */
 #pragma endregion
 
 	cout << endl;
@@ -415,21 +556,14 @@ int main()
 	Law =>  ( π * ((Triangle rule * Triangle rule) / 4) * (( (2 * Side height of triangle) - Triangle rule ) / ( (2 * Side height of triangle) + Triangle rule ))  */
 
 	/*cout << "The Problem 22 : Enter ( Side height of triangle , Triangle rule ) ?" << endl;
-	float inputSideHeightTriangle,
-	 inputTriangleRule,
-		Pi = 3.14F,
-		CalculateCircleAreaInscribedInIsoscelesTriangle;
+	float inputSideHeightTriangle, inputTriangleRule;
 
 	cin >> inputSideHeightTriangle;
 	cin >> inputTriangleRule;
 
-	CalculateCircleAreaInscribedInIsoscelesTriangle = 
-	 Pi * ((inputTriangleRule * inputTriangleRule) / 4) * 
-	(( (2 * inputSideHeightTriangle) - inputTriangleRule ) / ( (2 * inputSideHeightTriangle) + inputTriangleRule ));
-
 	cout << "Calculate Circle Area In scribed In Isosceles Triangle = "
 	<< "( π * ((Triangle rule * Triangle rule) / 4) * (( (2 * Side height of triangle) - Triangle rule ) / ( (2 * Side height of triangle) + Triangle rule ))= "
-	<< floor(CalculateCircleAreaInscribedInIsoscelesTriangle) ; */
+	<< floor(CalculateCircleAreaInscribedInIsoscelesTriangle(inputSideHeightTriangle , inputTriangleRule)) ; */
 #pragma endregion
 
 	cout << endl;
@@ -447,28 +581,11 @@ int main()
 
 
 	/*cout << "The Problem 23 : Enter Sides of a triangle 3 ( rib1 , rib2 , rib3 ) ?" << endl;
-	float rib1,
-	 rib2,
-	 rib3,
-		Pi = 3.14F,
-		P,
-		CalculateCircleAreaCircleDescribedAroundArbitraryTriangle;
+	float rib1, rib2, rib3;
 
 	cin >> rib1;
 	cin >> rib2;
 	cin >> rib3;
-
-	P = (rib1 + rib2 + rib3) / 2;
-
-
-
-	CalculateCircleAreaCircleDescribedAroundArbitraryTriangle =
-	 (rib1 * rib2 * rib3) / (4 * sqrt(P * (P - rib1) * (P - rib2) * (P - rib3)) );
-
-	 CalculateCircleAreaCircleDescribedAroundArbitraryTriangle *=
-		 CalculateCircleAreaCircleDescribedAroundArbitraryTriangle;
-
-	 CalculateCircleAreaCircleDescribedAroundArbitraryTriangle *= Pi; 
 
 	cout 
 		<< "Calculate circle area circle Described around an Arbitrary Triangle = "
@@ -476,7 +593,7 @@ int main()
 	<< "Step2 =>  (rib1 * rib2 * rib3) / (4 * sqrt(P * (P - rib1) * (P - rib2) * (P - rib3)) ) \n"
 	<< "ٍStep3 => multiplied by the result by itself \n"
 	<< "Step4 => (result Step3 * π) \n"
-	<< "Rusult = " << round(CalculateCircleAreaCircleDescribedAroundArbitraryTriangle);*/
+	<< "Rusult = " << round(CalculateCircleAreaCircleDescribedAroundArbitraryTriangle(rib1, rib2, rib3));*/
 #pragma endregion
 
 	cout << endl;
@@ -639,12 +756,7 @@ int main()
 		
 
 	cin >> inputNumber;
-	cout << endl;
-
-		cout 
-		<< "Calculate Power ^2 =  " << round(pow(inputNumber, 2))   << endl
-		<< "Calculate Power ^3 =  " << round(pow(inputNumber, 3))   << endl
-		<< "Calculate Power ^4 =  " << round(pow(inputNumber, 4))   << endl ;*/
+	PrintPowerNumberFrom2To4(inputNumber);*/
 #pragma endregion
 
 	cout << endl;
@@ -654,19 +766,12 @@ int main()
 	/* write a program To Ask The User To Enter ("Number" , "M") Power Number ^ M  */
 
 	/*cout << "the problem 32 : enter (Number , Power Number) ?" << endl;
-	int inputNumber = 1,
-		 inputM = 1,
-		CalculatePowerNumber = 1;
+	int inputNumber = 1, inputM = 1;
 
 	cin >> inputNumber;
 	cin >> inputM;
 	cout << endl;
-
-	for (int i = 0; i < inputM; i++)
-	{
-		CalculatePowerNumber *= inputNumber;
-	}
-		cout << "Calculate Power Number =  " << round(CalculatePowerNumber)  << endl;*/
+	cout << "Calculate Power Number =  " << round(CalculatePowerNumber(inputNumber , inputM)) << endl;*/
 #pragma endregion
 
 	cout << endl;
@@ -970,19 +1075,14 @@ int main()
 
 	/*cout << "the problem 42 : Enter (Number Of Days , Number Of Hours , Number Of Minutes , Number Of Seconds) ? " << endl;
 
-	double numberOfDays,
-		numberOfHours,
-		numberOfMinutes,
-		numberOfSeconds;
+	int numberOfDays, numberOfHours, numberOfMinutes, numberOfSeconds;
 
 	cin >> numberOfDays;
 	cin >> numberOfHours;
 	cin >> numberOfMinutes;
 	cin >> numberOfSeconds;
 
-	double TotalSeconds = (numberOfDays * 24 * 60 * 60) + (numberOfHours * 60 * 60) + (numberOfMinutes * 60) + numberOfSeconds;
-
-	cout << "Total Seconds = " << round(TotalSeconds)  << endl;*/
+	cout << "Total Seconds = " << round(CalculateDurationInSeconds(numberOfDays , numberOfHours, numberOfMinutes, numberOfSeconds )) << endl;*/
 #pragma endregion
 
 	cout << endl;
@@ -993,34 +1093,11 @@ int main()
 
 	/*cout << "the problem 43 : Enter (Total Seconds) ? " << endl;
 
-	int secondsOfDays = 24 * 60 * 60,
-		secondsOfHours = 60 * 60,
-		secondsOfMinutes = 60,
-		totalSeconds,
-		numberOfDays,
-		numberOfHours,
-		numberOfMinutes,
-		Remainder,
-		numberOfSeconds;
+	int totalSeconds;
 
 	cin >> totalSeconds;
 
-	numberOfDays = totalSeconds / secondsOfDays;
-	Remainder = totalSeconds % secondsOfDays;
-
-	numberOfHours = Remainder / secondsOfHours;
-	Remainder = Remainder % secondsOfHours;
-
-	numberOfMinutes = Remainder / secondsOfMinutes;
-	Remainder = Remainder % secondsOfMinutes;
-
-	numberOfSeconds = Remainder;
-
-	cout 
-		<< "Number Of Days	  : " << round(numberOfDays)    << endl
-		<< "Number Of Hours	  : " << round(numberOfHours)   << endl
-		<< "Number Of Minutes : " << round(numberOfMinutes) << endl
-		<< "Number Of Seconds : " << round(numberOfSeconds) << endl;*/
+	CalculateSecondsTo_Days_Hours_Minutes_Seconds(totalSeconds);*/
 #pragma endregion
 
 	cout << endl;
