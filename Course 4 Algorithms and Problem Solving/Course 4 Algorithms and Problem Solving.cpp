@@ -1,6 +1,7 @@
 ﻿
 #include <iostream>
-#include "string.h" 
+#include <string> 
+#include "cmath"
 
 using namespace std;
 
@@ -294,7 +295,7 @@ int main()
 	cin >> inputDiagonal;
 
 	calculateRectangleAreaThroughDiagonal = 
-		inputHeight * sqrt( (inputDiagonal * inputDiagonal) - (inputHeight * inputHeight) );
+		inputHeight * sqrt( pow(inputDiagonal , 2)  - pow(inputHeight, 2) );
 
 	cout << "calculate Rectangle Area Through Diagonal = " 
 	<< " (height x sqrt((diagonal x diagonal) - (height x height))) = " 
@@ -339,7 +340,7 @@ int main()
 
 	calculateCircleAreaByRadius = Pi * (inputDistance * inputDistance);
 
-	cout << "calculate Circle Area By Radius = (π * (Distance * Distance) ) = " << calculateCircleAreaByRadius;*/
+	cout << "calculate Circle Area By Radius = (π * (Distance * Distance) ) = " << ceil(calculateCircleAreaByRadius) ;*/
 #pragma endregion
 
 	cout << endl;
@@ -360,7 +361,7 @@ int main()
 	CalculateAreaCircleFullDiameter = Pi * (inputDiameter * inputDiameter) / 4;
 
 	cout << "Calculate Area Circle FullDiameter = (π * (Diameter * Diameter) / 4 ) = " 
-	<< CalculateAreaCircleFullDiameter; */
+	<< ceil(CalculateAreaCircleFullDiameter) ; */
 #pragma endregion
 
 	cout << endl;
@@ -381,7 +382,7 @@ int main()
 	CalculateCircleAreaInscribedInSquare = Pi * ( (inputSquareSide * inputSquareSide) / (2 * 2) );
 
 	cout << "Calculate Circle Area Inscribed In Square = (π * ( (Square Side * Square Side) /  (2 * 2) ) ) = "
-	<< CalculateCircleAreaInscribedInSquare; */
+	<< ceil(CalculateCircleAreaInscribedInSquare); */
 #pragma endregion
 
 	cout << endl;
@@ -402,7 +403,7 @@ int main()
 	CalculateCircleAreaAlongCircumference = (inputLengthPerimeter * inputLengthPerimeter) /  (Pi * 4);
 
 	cout << "Calculate Circle Area Inscribed In Square = (Length Perimeter * Length Perimeter) /  (π * 4) = "
-	<< CalculateCircleAreaAlongCircumference; */
+	<< floor(CalculateCircleAreaAlongCircumference); */
 #pragma endregion
 
 	cout << endl;
@@ -428,7 +429,7 @@ int main()
 
 	cout << "Calculate Circle Area In scribed In Isosceles Triangle = "
 	<< "( π * ((Triangle rule * Triangle rule) / 4) * (( (2 * Side height of triangle) - Triangle rule ) / ( (2 * Side height of triangle) + Triangle rule ))= "
-	<< CalculateCircleAreaInscribedInIsoscelesTriangle; */
+	<< floor(CalculateCircleAreaInscribedInIsoscelesTriangle) ; */
 #pragma endregion
 
 	cout << endl;
@@ -475,7 +476,7 @@ int main()
 	<< "Step2 =>  (rib1 * rib2 * rib3) / (4 * sqrt(P * (P - rib1) * (P - rib2) * (P - rib3)) ) \n"
 	<< "ٍStep3 => multiplied by the result by itself \n"
 	<< "Step4 => (result Step3 * π) \n"
-	<< CalculateCircleAreaCircleDescribedAroundArbitraryTriangle; */
+	<< "Rusult = " << round(CalculateCircleAreaCircleDescribedAroundArbitraryTriangle);*/
 #pragma endregion
 
 	cout << endl;
@@ -640,13 +641,10 @@ int main()
 	cin >> inputNumber;
 	cout << endl;
 
-	int Number_2 = inputNumber * inputNumber,
-		Number_3 = Number_2 * inputNumber,
-		Number_4 = Number_3 * inputNumber;
-
-		cout << "Calculate Power ^2 =  " << Number_2 << endl
-		<< "Calculate Power ^3 =  " << Number_3 << endl
-		<< "Calculate Power ^4 =  " << Number_4 << endl ;*/
+		cout 
+		<< "Calculate Power ^2 =  " << round(pow(inputNumber, 2))   << endl
+		<< "Calculate Power ^3 =  " << round(pow(inputNumber, 3))   << endl
+		<< "Calculate Power ^4 =  " << round(pow(inputNumber, 4))   << endl ;*/
 #pragma endregion
 
 	cout << endl;
@@ -668,7 +666,7 @@ int main()
 	{
 		CalculatePowerNumber *= inputNumber;
 	}
-		cout << "Calculate Power Number =  " << CalculatePowerNumber << endl;*/
+		cout << "Calculate Power Number =  " << round(CalculatePowerNumber)  << endl;*/
 #pragma endregion
 
 	cout << endl;
@@ -984,7 +982,7 @@ int main()
 
 	double TotalSeconds = (numberOfDays * 24 * 60 * 60) + (numberOfHours * 60 * 60) + (numberOfMinutes * 60) + numberOfSeconds;
 
-	cout << "Total Seconds = " << TotalSeconds << endl;*/
+	cout << "Total Seconds = " << round(TotalSeconds)  << endl;*/
 #pragma endregion
 
 	cout << endl;
@@ -1019,10 +1017,10 @@ int main()
 	numberOfSeconds = Remainder;
 
 	cout 
-		<< "Number Of Days	  : " << numberOfDays << endl
-		<< "Number Of Hours	  : " << numberOfHours << endl
-		<< "Number Of Minutes : " << numberOfMinutes << endl
-		<< "Number Of Seconds : " << numberOfSeconds << endl;*/
+		<< "Number Of Days	  : " << round(numberOfDays)    << endl
+		<< "Number Of Hours	  : " << round(numberOfHours)   << endl
+		<< "Number Of Minutes : " << round(numberOfMinutes) << endl
+		<< "Number Of Seconds : " << round(numberOfSeconds) << endl;*/
 #pragma endregion
 
 	cout << endl;
